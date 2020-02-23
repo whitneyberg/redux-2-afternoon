@@ -21,11 +21,7 @@ export const requestBudgetData = () => {
     }
 }
 export const addPurchase = (price, description, category) => {
-    let data = axios.post('/api/budget-data/purchase' ,{
-        description,
-        price,
-        category
-    }) .then (res => res.data)
+    let data = axios.post('/api/budget-data/purchase', {description, price, category}).then(res => res.data)
     return {
         type: ADD_PURCHASE,
         payload: data
@@ -41,7 +37,7 @@ export const removePurchase = (id) => {
 }
 
 
-export default function budgetReducer(state = initialState, action){
+export default function reducer(state = initialState, action){
     switch (action.type) {
         case REQUEST_BUDGET_DATA + '_PENDING':
             return {...state, loading:true}
